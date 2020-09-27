@@ -13,7 +13,7 @@ module.exports = {
     cooldown: 5,
     usage: '<battlenetID>',
     execute(message, args){
-        message.channel.send(`Here are some Warzone Stats for ${arg[0]}`);
+        message.channel.send(`Here are some Warzone Stats for ${args[0]}`);
         console.log(`${message.author.tag} sent warzone command at ${Date(Date.now()).toString()}`);            
         API.MWBattleData(args[0], API.platforms.battle).then((output) => {
             //we'll loop this later
