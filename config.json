@@ -4,5 +4,7 @@
 	"api_url": "https://rootflag.io",
 	"api_key": "your own api key here",
 	"api_version": "v3",
-	"api_posts": "/posts/"
+	"api_posts": "/posts/",
+	"activision_account": "activision email here",
+	"activision_password": "activision password here"
 }
