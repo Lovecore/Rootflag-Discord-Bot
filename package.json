@@ -1,0 +1,18 @@
+{
+  "name": "rootflag_discord",
+  "version": "1.0.0",
+  "description": "Discord bot for the Rootflag Discord server.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Canino",
+  "license": "ISC",
+  "dependencies": {
+    "@tryghost/content-api": "^1.4.3",
+    "discord": "^0.8.2",
+    "discord.js": "^12.2.0",
+    "request": "^2.88.2",
+    "requests": "^0.3.0"
+  }
+}
