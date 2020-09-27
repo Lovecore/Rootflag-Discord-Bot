@@ -1,0 +1,8 @@
+{
+	"prefix": "!",
+	"token": "your token here",
+	"api_url": "https://rootflag.io",
+	"api_key": "your own api key here",
+	"api_version": "v3",
+	"api_posts": "/posts/"
+}
