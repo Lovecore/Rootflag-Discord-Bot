@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@tryghost/content-api": "^1.4.3",
+    "call-of-duty-api": "^1.2.16",
     "discord": "^0.8.2",
     "discord.js": "^12.2.0",
     "request": "^2.88.2",
