@@ -5,6 +5,7 @@ API.login(activision_account, activision_password)
 .catch((err) => {
     console.error(err);    
     });
+
 module.exports = {
     name: 'warzone',
     description: 'This command will give you your warzone stats.',
@@ -17,6 +18,8 @@ module.exports = {
         console.log(`${message.author.tag} sent warzone command at ${Date(Date.now()).toString()}`);            
         API.MWBattleData(args[0], API.platforms.battle).then((output) => {
             //we'll loop this later
+            //console.log(output);
+            message.channel.send(`Playtime in days: ${output.br_all.timePlayed / 60 / 60 / 24}`);
             message.channel.send(`Wins: ${output.br_all.wins}`);
             message.channel.send(`Kills: ${output.br_all.kills}`);
             message.channel.send(`K/D ratio: ${output.br_all.kdRatio}`);
@@ -27,9 +30,11 @@ module.exports = {
             message.channel.send(`Top 10 finishes: ${output.br_all.topTen}`);
             message.channel.send(`Top 5 finishes: ${output.br_all.topFive}`);
             message.channel.send(`Games played: ${output.br_all.gamesPlayed}`);
+            message.channel.send(`Contracts completed: ${output.br_all.contracts}`)  
         })
         .catch((err) => {
             console.error(err);
+            message.channel.send(err);
         });
     }
 }
