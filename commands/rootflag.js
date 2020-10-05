@@ -15,7 +15,7 @@ module.exports = {
 			version: api_version
 		  });
 
-		if(args[0] === 'posts'){
+		if(args[0].toLowerCase() === 'posts' && args[1] > 0){
 			api.posts
 				.browse({limit: args[1], include: 'tags,authors'})
     			.then((posts) => {
@@ -28,7 +28,7 @@ module.exports = {
 				.catch((err) => {
 					console.error(err);
 				});
-			} else if(args[0] === 'tags' && args[1] === 'all'){
+			} else if(args[0].toLowerCase() === 'tags' && args[1].toLowerCase() === 'all'){
 				api.tags
 					.browse({limit: 999999, order: 'slug ASC'}, {include: 'count.posts'})
 					.then((tags) => {
