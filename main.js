@@ -2,7 +2,7 @@ const util = require('util');
 const Discord = require('discord.js');
 const http = require('http');
 const fs = require('fs');
-const { prefix, token } = require('./config.json');
+const { prefix, token, reaction_message, ctf_role, dev_role } = require('./config.json');
 
 //create a connector to call
 const client = new Discord.Client({
@@ -98,13 +98,13 @@ client.on('messageReactionAdd', (reaction, user) => {
     console.log(`${reaction.message.guild.members.cache.get(user.id)} reacted to set a role at ${Date(Date.now()).toString()}`);
     const { name } = reaction.emoji;
     const member = reaction.message.guild.members.cache.get(user.id);
-    if(reaction.message.id === '763015711403540511') {
+    if(reaction.message.id === reaction_message) {
         switch (name) {
             case '🐍':
-                member.roles.add('740920551677100172')
+                member.roles.add(dev_role)
                 break;
             case '🏴‍☠️':
-                member.roles.add('740920717998293085')
+                member.roles.add(ctf_role)
                 break;
         }
     }
@@ -115,13 +115,13 @@ client.on('messageReactionRemove', (reaction, user) => {
     console.log(`${reaction.message.guild.members.cache.get(user.id)} un-reacted to set a role at ${Date(Date.now()).toString()}`);
     const { name } = reaction.emoji;
     const member = reaction.message.guild.members.cache.get(user.id);
-    if(reaction.message.id === '763015711403540511') {
+    if(reaction.message.id === reaction_message) {
         switch (name) {
-            case '🏴‍☠️':
-                member.roles.remove('740920551677100172')
-                break;
             case '🐍':
-                member.roles.remove('740920717998293085')
+                member.roles.remove(dev_role)
+                break;
+            case '🏴‍☠️':
+                member.roles.remove(ctf_role)
                 break;
         }
     }
