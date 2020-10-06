@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const http = require('http');
 const fs = require('fs');
 const { prefix, token, reaction_message, ctf_role, dev_role } = require('./config.json');
+const { rf_reaction_add, rf_reaction_remove } = require('./functions');
 
 //create a connector to call
 const client = new Discord.Client({
@@ -96,35 +97,13 @@ client.on('message', message => {
 //add reaction based roles
 client.on('messageReactionAdd', (reaction, user) => {
     console.log(`${reaction.message.guild.members.cache.get(user.id)} reacted to set a role at ${Date(Date.now()).toString()}`);
-    const { name } = reaction.emoji;
-    const member = reaction.message.guild.members.cache.get(user.id);
-    if(reaction.message.id === reaction_message) {
-        switch (name) {
-            case '🐍':
-                member.roles.add(dev_role)
-                break;
-            case '🏴‍☠️':
-                member.roles.add(ctf_role)
-                break;
-        }
-    }
+    rf_reaction_add(reaction, user);
 });
 
 //remove reaction based roles
 client.on('messageReactionRemove', (reaction, user) => {
     console.log(`${reaction.message.guild.members.cache.get(user.id)} un-reacted to set a role at ${Date(Date.now()).toString()}`);
-    const { name } = reaction.emoji;
-    const member = reaction.message.guild.members.cache.get(user.id);
-    if(reaction.message.id === reaction_message) {
-        switch (name) {
-            case '🐍':
-                member.roles.remove(dev_role)
-                break;
-            case '🏴‍☠️':
-                member.roles.remove(ctf_role)
-                break;
-        }
-    }
+    rf_reaction_remove(reaction, user);
 });
 
 client.login(token); //this must be the last line in
