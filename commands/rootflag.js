@@ -14,7 +14,7 @@ module.exports = {
 			key: api_key,
 			version: api_version
 		  });
-
+		//this probably should be mapped rather than else/if buttt..
 		if(args[0].toLowerCase() === 'posts' && args[1] > 0){
 			api.posts
 				.browse({limit: args[1], include: 'tags,authors'})

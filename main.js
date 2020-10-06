@@ -4,11 +4,15 @@ const http = require('http');
 const fs = require('fs');
 const { prefix, token } = require('./config.json');
 
-const client = new Discord.Client(); //create a connector to call
+//create a connector to call
+const client = new Discord.Client({
+    partials: ['MESSAGE', 'REACTION'] //partials for reaction functions are required
+}); 
 client.commands = new Discord.Collection(); //command collection
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js')); //set our commands location
 
-for(const file of commandFiles){ //loop through the commands directory and set commands names
+//loop through the commands directory and set commands names
+for(const file of commandFiles){ 
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
@@ -89,5 +93,38 @@ client.on('message', message => {
     }
 });
 
+//add reaction based roles
+client.on('messageReactionAdd', (reaction, user) => {
+    console.log(`${reaction.message.guild.members.cache.get(user.id)} reacted to set a role at ${Date(Date.now()).toString()}`);
+    const { name } = reaction.emoji;
+    const member = reaction.message.guild.members.cache.get(user.id);
+    if(reaction.message.id === '763015711403540511') {
+        switch (name) {
+            case '🐍':
+                member.roles.add('740920551677100172')
+                break;
+            case '🏴‍☠️':
+                member.roles.add('740920717998293085')
+                break;
+        }
+    }
+});
+
+//remove reaction based roles
+client.on('messageReactionRemove', (reaction, user) => {
+    console.log(`${reaction.message.guild.members.cache.get(user.id)} un-reacted to set a role at ${Date(Date.now()).toString()}`);
+    const { name } = reaction.emoji;
+    const member = reaction.message.guild.members.cache.get(user.id);
+    if(reaction.message.id === '763015711403540511') {
+        switch (name) {
+            case '🏴‍☠️':
+                member.roles.remove('740920551677100172')
+                break;
+            case '🐍':
+                member.roles.remove('740920717998293085')
+                break;
+        }
+    }
+});
 
 client.login(token); //this must be the last line in
