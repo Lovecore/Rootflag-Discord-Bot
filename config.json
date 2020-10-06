@@ -1,0 +1,14 @@
+
+{
+	"prefix": "!",
+	"token": "TOKEN HERE",
+	"reaction_message": "REACTION MESSAGE ID HERE",
+	"ctf_role": "ROLE ID HERE",
+	"dev_role": "ROLE ID HERE",
+	"api_url": "https://rootflag.io",
+	"api_key": "API KEY HERE",
+	"api_version": "v3",
+	"api_posts": "/posts/",
+	"activision_account": "ACTIVISION ID HERE",
+	"activision_password": "ACTIVISION PASSWORD HERE"
+}
