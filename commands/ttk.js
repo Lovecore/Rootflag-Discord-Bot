@@ -2,7 +2,7 @@ const otherFunctions = require('../functions.js');
 
 module.exports = {
     name: 'ttk',
-    description: 'This command will give you the current *T*ime *T*o *K*ill for in meta weapons for Warzone. Supported weapon types are: AR, AR ADS, SMG, SMG ADS, LMG, LMG ADS',
+    description: 'This command will give you the current *T*ime *T*o *K*ill for in meta weapons for Warzone. Supported weapon types are: AR, AR-ADS, SMG, SMG-ADS, LMG, LMG-ADS, META, META-ADS',
     args: true,
     guildOnly: false,
     cooldown: 5,

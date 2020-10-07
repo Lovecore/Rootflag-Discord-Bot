@@ -1,9 +1,8 @@
-const util = require('util');
 const Discord = require('discord.js');
-const http = require('http');
 const fs = require('fs');
 const { prefix, token, reaction_message, ctf_role, dev_role } = require('./config.json');
 const { rf_reaction_add, rf_reaction_remove } = require('./functions');
+
 
 //create a connector to call
 const client = new Discord.Client({
@@ -106,4 +105,24 @@ client.on('messageReactionRemove', (reaction, user) => {
     rf_reaction_remove(reaction, user);
 });
 
+// //webhooks
+// const embed = new Discord.MessageEmbed()
+// 	.setTitle('Some Title')
+// 	.setColor('#0099ff');
+
+// client.once('ready', async () => {
+// 	const channel = client.channels.cache.get('668508611781066771');
+// 	try {
+// 		const webhooks = await channel.fetchWebhooks();
+// 		const webhook = webhooks.first();
+
+// 		await webhook.send('Webhook test', {
+// 			username: 'some-username',
+// 			avatarURL: 'https://i.imgur.com/wSTFkRM.png',
+// 			embeds: [embed],
+// 		});
+// 	} catch (error) {
+// 		console.error('Error trying to send: ', error);
+// 	}
+// });
 client.login(token); //this must be the last line in
