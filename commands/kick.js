@@ -5,7 +5,6 @@ module.exports = {
     args: true,
     execute(message, args){
         //Server Admin ID 740920320868745337
-    
         if(message.member.roles.cache.some(role => role.name === 'Server Admin')){ //permission logic
             message.channel.send(`${args} Has been kicked`);
             console.log(`${message.author.tag} sent kick command at ${Date(Date.now()).toString()}`);      

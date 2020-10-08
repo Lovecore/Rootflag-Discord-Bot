@@ -9,10 +9,10 @@
   "author": "Nick Canino",
   "license": "ISC",
   "dependencies": {
-    "@tryghost/content-api": "^1.4.3",
+    "@tryghost/content-api": "^1.4.5",
     "call-of-duty-api": "^1.2.16",
     "discord": "^0.8.2",
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.3.1",
     "imgflipper": "^1.0.1",
     "request": "^2.88.2",
     "requests": "^0.3.0"
