@@ -29,16 +29,9 @@ var all_meme_types = () => {
     return desc;
 }
 
-(function () {
-    let desc = 'Use this command to generate a meme! Here are the current meme\s:\n';
-    for (var i in meme) {
-        desc += "\t\t" + i + "\n";
-    }
-    return desc;
-})();
 module.exports = {
     name: 'meme',
-    description: all_meme_types,
+    description: all_meme_types(),
     args: true,
     guildOnly: false,
     cooldown: 5,
