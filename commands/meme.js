@@ -19,7 +19,8 @@ const meme = {
     "awkwardpenguin": 61584,
     "changemymind": 129242436,
     "distractedbf": 112126428,
-    "drake": 181913649
+    "drake": 181913649,
+    "exitofframp": 124822590 
 }
 var all_meme_types = () => {
     let desc = 'Use this command to generate a meme! Here are the current meme\s:\n';
