@@ -200,7 +200,7 @@ module.exports = {
             });
         } else if(args[1] === 'last') {
             API.MWcombatwz(args[0], API.platforms.battle).then((output) => {
-                message.channel.send(`Here are the stats from the last available game on the API endpoint:\n\
+                message.channel.send(`Here are the stats from the last available game on the API endpoint. CoD API endpoints have a 25 minute refresh time:\n\
                 Game Mode: ${output.matches[0].mode}\n\
                 Player Count: ${output.matches[0].playerStats.playerCount}\n\
                 Time Played: ${output.matches[0].playerStats.timePlayed / 60} minutes\n\
