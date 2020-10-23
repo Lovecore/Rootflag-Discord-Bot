@@ -205,7 +205,7 @@ module.exports = {
                 Player Count: ${output.matches[0].playerStats.playerCount}\n\
                 Time Played: ${output.matches[0].playerStats.timePlayed / 60} minutes\n\
                 Placed: ${output.matches[0].playerStats.teamPlacement}\n\
-                Kills: ${output.matches[0].playerStats.rank}\n\
+                Kills: ${output.matches[0].playerStats.kills}\n\
                 Gulag Kills: ${output.matches[0].playerStats.gulagKills}\n\
                 Deaths: ${output.matches[0].playerStats.deaths}\n\
                 Gulag Deaths: ${output.matches[0].playerStats.gulagDeaths}\n\
